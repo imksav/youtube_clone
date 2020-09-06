@@ -8,158 +8,375 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "YouTube Clone",
+      debugShowCheckedModeBanner: false,
+      title: "Youtube Clone App",
       home: HomePage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
-  static const textStyle = TextStyle(color: Colors.white);
-  static const List<Widget> _bottomNavigatorBarOptions = <Widget>[
-    Text('Index 0: Home', style: textStyle),
-    Text('Index 1: Explore', style: textStyle),
-    Text('Index 2: Subscriptions', style: textStyle),
-    Text('Index 3: Notifications', style: textStyle),
-    Text('Index 4: Library', style: textStyle),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: null,
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.black87,
-          child: Column(
-            children: [
-              Card(
-                color: Colors.black,
-                child: Row(
+          child: Card(
+            elevation: 2.0,
+            color: Colors.white,
+            child: Column(
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
-                      "assets/logo_yt.png",
+                      "assets/youtube_logo.png",
                       width: 100,
                       height: 100,
                     ),
                     Icon(
                       Icons.video_call,
-                      color: Colors.white,
+                      color: Colors.grey,
                     ),
                     Icon(
                       Icons.search,
-                      color: Colors.white,
+                      color: Colors.grey,
                     ),
                     Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color: Colors.grey,
                     ),
                   ],
                 ),
-              ),
-              Card(
-                elevation: 5,
-                color: Colors.black,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(29.0),
-                          side: BorderSide(color: Colors.black)),
-                      onPressed: () {},
-                      color: Colors.white,
-                      textColor: Colors.black,
-                      child: Text("All", style: TextStyle(fontSize: 14)),
-                    ),
-                    SizedBox(width: 10),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(29.0),
-                          side: BorderSide(color: Colors.white)),
-                      onPressed: () {},
-                      color: Colors.grey,
-                      textColor: Colors.white,
-                      child: Text(
-                        "Telugu cinema",
-                        style: TextStyle(
-                            fontSize: 14,
-                            textBaseline: TextBaseline.alphabetic),
+                Card(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Text("All"),
+                        color: Colors.grey[800],
+                        onPressed: () {},
+                        textColor: Colors.white,
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(29.0),
-                          side: BorderSide(color: Colors.white)),
-                      onPressed: () {},
-                      color: Colors.grey,
-                      textColor: Colors.white,
-                      child: Text("Cricket", style: TextStyle(fontSize: 14)),
-                    ),
-                    SizedBox(width: 10),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(29.0),
-                          side: BorderSide(color: Colors.white)),
-                      onPressed: () {},
-                      color: Colors.grey,
-                      textColor: Colors.white,
-                      child:
-                          Text("Smartphones", style: TextStyle(fontSize: 14)),
-                    ),
-                    SizedBox(width: 10),
-                  ],
+                      SizedBox(width: 10),
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Text("Telugu cinema"),
+                        color: Colors.grey[200],
+                        onPressed: () {},
+                        textColor: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Text("Cricket"),
+                        color: Colors.grey[200],
+                        onPressed: () {},
+                        textColor: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Text("Smartphones"),
+                        color: Colors.grey[200],
+                        onPressed: () {},
+                        textColor: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                    ],
+                  ),
                 ),
-              )
-            ],
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/Youtube_subscribe_intro.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/Logo_white.png",
+                            ),
+                          ),
+                          title: Text(
+                            "Subscribe to my Channel => ImKsav",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "Don't forget to . Like . Share . Turn Bell Icon On",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/firstimage.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "Galaxy Note 10 Lite Impressions in  Nepali!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "GadgetByte Nepali . 41K views . 6 months ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/secondimage.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "New South Indian Movie - SitaRam!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "ImKsav . 41K views . 1 week ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/youtube_logo.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "Galaxy Note 10 Lite Impressions in  Nepali!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "GadgetByte Nepali . 41K views . 6 months ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/youtube_logo.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "Galaxy Note 10 Lite Impressions in  Nepali!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "GadgetByte Nepali . 41K views . 6 months ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/youtube_logo.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "Galaxy Note 10 Lite Impressions in  Nepali!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "GadgetByte Nepali . 41K views . 6 months ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/youtube_logo.png",
+                          fit: BoxFit.cover,
+                        ),
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset(
+                              "assets/gadgetlogo.JPG",
+                            ),
+                          ),
+                          title: Text(
+                            "Galaxy Note 10 Lite Impressions in  Nepali!",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                            "GadgetByte Nepali . 41K views . 6 months ago",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 20,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.grey[500]),
-            title: Text("Home", style: TextStyle(color: Colors.grey[500])),
+            icon: Icon(Icons.home),
+            title: Text("Home"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore, color: Colors.grey[500]),
-            title: Text("Explore", style: TextStyle(color: Colors.grey[500])),
+            icon: Icon(Icons.explore),
+            title: Text("Explore"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.subscriptions, color: Colors.grey[500]),
-            title: Text("Subscriptions",
-                style: TextStyle(color: Colors.grey[500])),
+            icon: Icon(Icons.subscriptions),
+            title: Text("Subscriptions"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.grey[500]),
-            title: Text("Notifications",
-                style: TextStyle(color: Colors.grey[500])),
+            icon: Icon(Icons.notifications),
+            title: Text("Notifications"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.video_library, color: Colors.grey[500]),
-            title: Text("Library", style: TextStyle(color: Colors.grey[500])),
+            icon: Icon(Icons.video_library),
+            title: Text("Library"),
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.red,
-        backgroundColor: Colors.yellow,
-        onTap: _onItemTapped,
       ),
     );
   }
